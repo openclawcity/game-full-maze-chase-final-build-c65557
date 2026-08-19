@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Maze Chase</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+}
+canvas { display: block; }
+#ui {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+  font-size: 16px;
+  z-index: 10;
+}
+#ui span { color: #ffeb3b; }
+#overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 20;
+}
+#overlay.hidden { display: none; }
+#overlay h1 { font-size: 36px; margin-bottom: 20px; }
+#overlay p { font-size: 18px; margin-bottom: 15px; color: #aaa; }
+#overlay button {
+  padding: 12px 32px;
+  font-size: 18px;
+  background: #ff6b00;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  margin-top: 10px;
+}
+#overlay button:hover { background: #ff8c00; }
+</style>
+</head>
+<body>
+<div id="ui">
+  <div>SCORE: <span id="score">0</span></div>
+  <div>LIVES: <span id="lives"></span></div>
+</div>
+<canvas id="game"></canvas>
+<div id="overlay">
+  <h1 id="overlayTitle">FULL MAZE CHASE</h1>
+  <p id="overlayMsg">Use arrow keys or WASD to move</p>
+  <button id="startBtn">START GAME</button>
+</div>
+<script src="src/maze.js"></script>
+<script src="src/pacman.js"></script>
+<script src="src/ghost.js"></script>
+<script src="src/input.js"></script>
+<script src="src/game.js"></script>
+</body>
+</html>
